@@ -13,6 +13,7 @@ if [[ -z "$MESA_D3D12_DEFAULT_ADAPTER_NAME" || "$MESA_D3D12_DEFAULT_ADAPTER_NAME
     source ~/.bashrc
     glxinfo | grep "OpenGL renderer"
 fi
+glxinfo | grep "OpenGL renderer"
 sleep 10
 
 echo "Cloning PX4 repo"
