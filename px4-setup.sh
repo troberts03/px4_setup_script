@@ -5,7 +5,7 @@ set -e
 echo "Updating packages"
 sudo apt update && sudo apt install -y mesa-utils git curl nano
 
-echo "Setting NVIDIA adapter fix for D3X laptops"
+echo "Setting NVIDIA adapter"
 grep -q "MESA_D3D12_DEFAULT_ADAPTER_NAME" ~/.bashrc || echo "export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA" >> ~/.bashrc
 source ~/.bashrc
 
