@@ -3,6 +3,7 @@ set -e
 echo "Updating packages..."
 sudo apt update && sudo apt install -y mesa-utils git curl nano
 
+sleep 5
 echo "Checking OpenGL renderer..."
 RENDERER=$(glxinfo | grep "OpenGL renderer" || echo "Unknown")
 
