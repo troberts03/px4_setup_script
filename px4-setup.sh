@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+echo "Updating packages..."
+sudo apt update && sudo apt install -y mesa-utils git curl nano
 
 echo "Checking OpenGL renderer..."
 RENDERER=$(glxinfo | grep "OpenGL renderer" || echo "Unknown")
@@ -20,9 +22,6 @@ if echo "$RENDERER" | grep -qi "Intel"; then
 fi
 
 echo "NVIDIA GPU detected — proceeding with setup..."
-
-echo "Updating packages..."
-sudo apt update && sudo apt install -y mesa-utils git curl nano
 
 echo "Cloning PX4 repo..."
 cd ~
