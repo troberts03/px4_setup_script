@@ -8,13 +8,16 @@ sudo apt update && sudo apt install -y mesa-utils git curl nano
 echo "Setting NVIDIA adapter"
 grep -q "MESA_D3D12_DEFAULT_ADAPTER_NAME" ~/.bashrc || echo "export MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA" >> ~/.bashrc
 sleep 5
-if [[ -z "$MESA_D3D12_DEFAULT_ADAPTER_NAME" || "$MESA_D3D12_DEFAULT_ADAPTER_NAME" != "NVIDIA" ]]; then
-    echo "Applying graphics environment fix..."
-    source ~/.bashrc
-    glxinfo | grep "OpenGL renderer"
-fi
+
+echo
+echo "NVIDIA GPU override added to ~/.bashrc"
+echo "Run:  source ~/.bashrc"
+echo "Then press ENTER to continue..."
+read
+
+echo "Checking NVIDIA Adapter"
 glxinfo | grep "OpenGL renderer"
-sleep 10
+sleep 5
 
 echo "Cloning PX4 repo"
 cd ~
